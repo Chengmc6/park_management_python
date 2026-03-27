@@ -1,0 +1,37 @@
+# --- Python 虚拟环境 ---
+venv/
+.venv/
+env/
+ENV/
+bin/
+lib/
+# 忽略 PyCharm 或 VS Code 自动生成的虚拟环境目录
+
+# --- 缓存与编译文件 ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+
+# --- 环境变量与敏感信息 (非常重要！) ---
+.env
+.flaskenv
+*.log
+auth.json
+# 确保你的 MySQL 密码、JWT 密钥不会泄露到 GitHub
+
+# --- 编辑器相关 ---
+.vscode/
+.idea/
+*.swp
+*.bak
+
+# --- 数据库相关 ---
+# 如果你以后用了 SQLite，忽略本地数据库文件
+*.db
+*.sqlite3
+
+# --- 操作系统相关 ---
+.DS_Store
+Thumbs.db
