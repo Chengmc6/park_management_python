@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import APIRouter, Depends, FastAPI
 
 from app.api.v1.dependencies import get_current_user
-from app.api.v1.endpoints import auth, car_operate
+from app.api.v1.endpoints import auth, car_operate, usage
 from app.core.config import settings
 from app.exception.exception_handler import exception_handler
 
@@ -17,6 +17,9 @@ api_router.include_router(
     car_operate.router,
     prefix=settings.api_v1_str,
     dependencies=Depends(get_current_user),
+)
+api_router.include_router(
+    usage.router, prefix=settings.api_v1_str, dependencies=Depends(get_current_user)
 )
 
 app.include_router(api_router)
