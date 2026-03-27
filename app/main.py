@@ -33,10 +33,10 @@ api_router.include_router(auth.router, prefix=settings.api_v1_str)
 api_router.include_router(
     car_operate.router,
     prefix=settings.api_v1_str,
-    dependencies=Depends(get_current_user),
+    dependencies=[Depends(get_current_user)],
 )
 api_router.include_router(
-    usage.router, prefix=settings.api_v1_str, dependencies=Depends(get_current_user)
+    usage.router, prefix=settings.api_v1_str, dependencies=[Depends(get_current_user)]
 )
 
 app.include_router(api_router)
