@@ -11,7 +11,7 @@ from app.schemas.car_dto.car_delete import CarDeleteRequestDto
 from app.schemas.car_dto.car_execute import CarDropRequestDto, CarRideRequestDto
 from app.schemas.car_dto.car_page import CarPageResponseVo
 from app.schemas.car_dto.car_query import CarQueryRequestDto
-from app.schemas.car_dto.car_update import CarUpdateRequestDto
+from app.schemas.car_dto.car_update import CarUpdateRequestDto, CarUpdateResponseVo
 
 
 class CarService:
@@ -79,7 +79,7 @@ class CarService:
 
         self.db.add(car)
         self.db.flush()
-        return car
+        return CarUpdateResponseVo.model_validate(Car)
 
     def ride(self, data: CarRideRequestDto):
         # 校验车辆状态

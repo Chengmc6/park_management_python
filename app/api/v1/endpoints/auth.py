@@ -35,4 +35,4 @@ async def change_password(
     change_data: UserPasswordChangeDto, user: UserDep, service: UserServiceDep
 ):
     service.change_password(user_id=user.id, change_data=change_data)  # type: ignore
-    return ApiResponse.success("修改成功，请重新登录")  # noqa: RUF001
+    return ApiResponse.success("修改成功,请重新登录")

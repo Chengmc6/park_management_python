@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class CarUpdateRequestDto(BaseModel):
@@ -20,3 +20,5 @@ class CarUpdateResponseVo(BaseModel):
     id: int | None = Field(default=None, description="车辆id")
     car_number: str | None = Field(default=None, min_length=1, description="车牌号")
     status: int | None = Field(default=None, description="车辆状态")
+
+    model_config = ConfigDict(from_attributes=True)
